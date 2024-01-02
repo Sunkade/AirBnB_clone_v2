@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/3-footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/3-header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/4-common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/6-filters.css') }}">
+    <title>HBNB Filters</title>
+</head>
+<body>
+    <header class="clearfix">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+        </div>
+    </header>
+
+    <section class="filters-section">
+        <div class="container">
+            <div class="filter">
+                <h3>States</h3>
+                <div class="popover">
+                    {% for state in states %}
+                        <input type="checkbox" id="{{ state.id }}" name="states" value="{{ state.id }}">
+                        <label for="{{ state.id }}">{{ state.name }}</label>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="filter">
+                <h3>Amenities</h3>
+                <div class="popover">
+                    {% for amenity in amenities %}
+                        <input type="checkbox" id="{{ amenity.id }}" name="amenities" value="{{ amenity.id }}">
+                        <label for="{{ amenity.id }}">{{ amenity.name }}</label>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Footer content here</p>
+        </div>
+    </footer>
+</body>
+</html>
